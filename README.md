@@ -4,8 +4,8 @@ Conway's Game of Life via Spatial Analyst
 
 ```python
 def tick(grid):
-  count = FocalStatistics(grid, NbrRectangle(3, 3), "SUM", "DATA") - grid
-  return Con((count == 3) | ((grid == 1) & (count == 2)), 1, 0)
+  g = FocalStatistics(grid, NbrRectangle(3, 3), "SUM", "DATA") - grid
+  return (grid == 1) & (g == 2) | (g == 3)
 ```
 
 <img src="https://github.com/EsriCanada/gosper_glider_gun/blob/master/demo.gif?raw=true" width="300">
