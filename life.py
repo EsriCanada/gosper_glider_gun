@@ -4,8 +4,8 @@ from arcpy.sa import *
 arcpy.CheckOutExtension("Spatial")
 
 def tick(grid):
-  count = FocalStatistics(grid, NbrRectangle(3, 3), "SUM", "DATA") - grid
-  return Con((count == 3) | ((grid == 1) & (count == 2)), 1, 0)
+  g = FocalStatistics(grid, NbrRectangle(3, 3), "SUM", "DATA") - grid
+  return (grid == 1) & (g == 2) | (g == 3)
 
 f = os.getcwd()
 
