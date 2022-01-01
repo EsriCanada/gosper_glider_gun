@@ -34,7 +34,7 @@ for i in range(1, iterations + 1):
     grid = Raster(path)
 
     # Stretch, resample and save.
-    Resample(SetNull(grid == 0, 255), "NearestNeighbor", 1000, 100).save(f"{path}.tif")
+    Resample(SetNull(grid == 0, 255), None, 1000, 100).save(f"{path}.tif")
 
 # Generate a video from the tif files.
 images = [img for img in os.listdir(env.workspace) if img.endswith(".tif")]
